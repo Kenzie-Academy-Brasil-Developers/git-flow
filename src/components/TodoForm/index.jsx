@@ -1,10 +1,15 @@
+
+import { useContext } from "react"
+import { TodoContext } from "../../providers/TodoContext"
 import { useForm } from "react-hook-form"
 
 export const TodoForm = () => {
+    const { addTodo } = useContext(TodoContext);
+
     const { register, handleSubmit } = useForm();
 
     const submit = (formData) => {
-        console.log(formData);
+        addTodo(formData);
     }
 
     return(
